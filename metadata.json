@@ -1,0 +1,6 @@
+{
+  "name": "Elite Friendss",
+  "description": "Your trusted digital companions. Get personalized friendly conversations and native Hinglish support 24/7 on WhatsApp and Telegram.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
