@@ -29,7 +29,7 @@ export default function PromoBanner() {
         {/* Buttons Action Group */}
         <div className="flex flex-col sm:flex-row gap-2.5 w-full md:w-auto shrink-0">
           <a
-            href="https://t.me/HEYAI_GIRLFRIEND"
+            href="https://wa.me/919540044092"
             target="_blank"
             rel="noopener noreferrer"
             id="redirect-telegram-btn-banner"
