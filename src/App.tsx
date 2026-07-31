@@ -90,9 +90,11 @@ export default function App() {
             onClick={() => handleViewChange("home")}
             className="flex items-center space-x-3 text-left focus:outline-none cursor-pointer shrink-0"
           >
-            <div className="w-9 h-9 bg-emerald-500 rounded-xl flex items-center justify-center shadow-sm">
-              <Heart className="w-5 h-5 text-white fill-white" />
-            </div>
+            <img
+              src="https://maas-log-prod.cn-wlcb.ufileos.com/anthropic/f40b580f-2b15-4b07-be9c-f46b79927b27/b421122004eb6035c78f92833be6f6d5.jpg"
+              alt="Elite Friends Logo"
+              className="w-9 h-9 rounded-xl object-cover shadow-sm"
+            />
             <div>
               <span className="text-xl font-extrabold tracking-tight text-slate-950 font-sans">
                 ELITE FRIENDS
