@@ -793,12 +793,12 @@ export default function App() {
       <footer className="bg-white border-t border-slate-100 pt-8 pb-24 md:pb-8 px-4 text-center text-slate-400 text-xs mt-auto">
         <div className="max-w-6xl mx-auto space-y-5">
           <p className="font-extrabold tracking-widest text-slate-700 uppercase">
-            ELITE FRIENDS © 2026
+            ELITE FRIENDS © 2026 . A UNIT OF AI ASTROLOGY
           </p>
           <p className="max-w-xl mx-auto leading-relaxed text-slate-400">
             Intimate, loving companion application. Play responsibly. All characters on the landing page are virtual profiles representing helpful friendly companions. Absolutely no explicit or 18+ content supported. For customer assistance, email support at support@elitefriendss.com.
           </p>
-        <p> © 2026 ELITEFRIENDSS.</p>
+        <p> © 2026 ELITEFRIENDSS. A UNIT OF AI ASTROLOGY.</p>
   
           {/* Footer Navigation links */}
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-slate-400 font-bold">
