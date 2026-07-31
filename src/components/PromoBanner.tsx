@@ -40,7 +40,7 @@ export default function PromoBanner() {
           </a>
           
           <a
-            href="https://t.me/HEYAI_GIRLFRIEND"
+            href="https://wa.me/919540044092"
             target="_blank"
             rel="noopener noreferrer"
             id="redirect-whatsapp-btn-banner"

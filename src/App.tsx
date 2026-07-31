@@ -134,7 +134,7 @@ export default function App() {
           {/* Top Nav Action Buttons */}
           <div className="flex items-center space-x-2 shrink-0">
             <a
-              href="https://t.me/HEYAI_GIRLFRIEND"
+              href="https://wa.me/919540044092"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1 bg-[#25D366] hover:bg-[#20ba5a] text-white text-[11px] font-extrabold px-3 py-2 rounded-xl transition shadow-sm cursor-pointer"
@@ -362,7 +362,7 @@ export default function App() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href="https://t.me/HEYAI_GIRLFRIEND"
+                href="https://wa.me/919540044092"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-sm px-6 py-3 rounded-xl transition shadow-md"
@@ -482,7 +482,7 @@ export default function App() {
               {/* Centered Direct Instant Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
                 <a
-                  href="https://t.me/HEYAI_GIRLFRIEND"
+                  href="https://wa.me/919540044092"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto flex items-center justify-center space-x-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-base px-8 py-4.5 rounded-2xl transition shadow-lg hover:shadow-xl cursor-pointer"
@@ -601,7 +601,7 @@ export default function App() {
                   
                   <div className="grid grid-cols-2 gap-2 w-full">
                     <a
-                      href="https://t.me/HEYAI_GIRLFRIEND"
+                      href="https://wa.me/919540044092"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center space-x-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[11px] py-2 px-3 rounded-lg transition text-center shadow-xs"
@@ -672,7 +672,7 @@ export default function App() {
                     {/* Direct Platform Launch Action buttons */}
                     <div className="flex flex-col sm:flex-row gap-2 shrink-0 w-full sm:w-auto">
                       <a
-                        href="https://t.me/HEYAI_GIRLFRIEND"
+                        href="https://wa.me/919540044092"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center space-x-1.5 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition cursor-pointer"
@@ -745,7 +745,7 @@ export default function App() {
 
                 <div className="flex flex-col sm:flex-row gap-2 pt-4 border-t border-slate-100">
                   <a
-                    href="https://t.me/HEYAI_GIRLFRIEND"
+                    href="https://wa.me/919540044092"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center space-x-1.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs py-3 px-4 rounded-lg transition"
@@ -793,15 +793,13 @@ export default function App() {
       <footer className="bg-white border-t border-slate-100 pt-8 pb-24 md:pb-8 px-4 text-center text-slate-400 text-xs mt-auto">
         <div className="max-w-6xl mx-auto space-y-5">
           <p className="font-extrabold tracking-widest text-slate-700 uppercase">
-            ELITE FRIENDS © 2026 . A Unit of Royal Banchers.
-
-
+            ELITE FRIENDS © 2026
           </p>
           <p className="max-w-xl mx-auto leading-relaxed text-slate-400">
             Intimate, loving companion application. Play responsibly. All characters on the landing page are virtual profiles representing helpful friendly companions. Absolutely no explicit or 18+ content supported. For customer assistance, email support at support@elitefriendss.com.
           </p>
-        <p> © 2026 ELITEFRIENDSS. A Unit of Royal Banchers.</p>
-          
+        <p> © 2026 ELITEFRIENDSS.</p>
+  
           {/* Footer Navigation links */}
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-slate-400 font-bold">
             <button
@@ -848,7 +846,7 @@ export default function App() {
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200/80 px-4 py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] md:hidden">
         <div className="max-w-md mx-auto flex items-center gap-3">
           <a
-            href="https://t.me/HEYAI_GIRLFRIEND"
+            href="https://wa.me/919540044092"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-xs py-3 px-3 rounded-xl transition shadow-sm"
