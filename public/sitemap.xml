@@ -4,4 +4,11 @@
     <loc>https://www.elitefriendss.com/</loc>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://www.elitefriendss.com/features</loc><priority>0.8</priority></url>
+  <url><loc>https://www.elitefriendss.com/faq</loc><priority>0.7</priority></url>
+  <url><loc>https://www.elitefriendss.com/privacy-policy</loc><priority>0.5</priority></url>
+  <url><loc>https://www.elitefriendss.com/blog</loc><priority>0.9</priority></url>
+  <url><loc>https://www.elitefriendss.com/blog/ai-companion-in-india</loc><lastmod>2026-08-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.elitefriendss.com/blog/how-to-chat-with-ai-friend-on-whatsapp</loc><lastmod>2026-08-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.elitefriendss.com/blog/ai-companion-privacy-safety-tips</loc><lastmod>2026-08-10</lastmod><priority>0.8</priority></url>
 </urlset>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import { Companion, Message } from "./types";
+import { BlogPage, BlogArticlePage } from "./Blog";
 import { INITIAL_COMPANIONS } from "./data";
 import {
   Heart,
@@ -769,6 +770,12 @@ function Header() {
             FAQ
           </Link>
           <Link
+            to="/blog"
+            className={`hover:text-emerald-600 transition cursor-pointer py-1.5 px-1.5 rounded ${location.pathname.startsWith("/blog") ? "text-emerald-600 font-extrabold border-b-2 border-emerald-500 rounded-none" : ""}`}
+          >
+            Blog
+          </Link>
+          <Link
             to="/privacy-policy"
             className={`hover:text-emerald-600 transition cursor-pointer py-1.5 px-1.5 rounded ${location.pathname === '/privacy-policy' ? 'text-emerald-600 font-extrabold border-b-2 border-emerald-500 rounded-none' : ''}`}
           >
@@ -963,6 +970,8 @@ export default function App() {
           <Route path="/features" element={<FeaturesPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogArticlePage />} />
         </Routes>
 
         <Footer />
