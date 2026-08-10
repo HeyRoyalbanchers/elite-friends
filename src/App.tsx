@@ -744,7 +744,7 @@ function Header() {
               ELITE FRIENDS
             </span>
             <p className="text-[9px] md:text-[10px] text-emerald-600 font-bold tracking-wider uppercase hidden sm:block font-sans">
-              Your Trusted Sweet Companions
+              Your AI Astrologer & Trusted Friend
             </p>
           </div>
         </Link>
@@ -829,6 +829,12 @@ function Header() {
           FAQ
         </Link>
         <Link
+          to="/blog"
+          className={`px-2 md:px-3 py-1 rounded-md transition whitespace-nowrap text-[10px] ${location.pathname.startsWith("/blog") ? "bg-emerald-500 text-white font-extrabold" : "hover:text-emerald-600"}`}
+        >
+          Astrology Blog
+        </Link>
+        <Link
           to="/privacy-policy"
           className={`px-2 md:px-3 py-1 rounded-md transition whitespace-nowrap text-[10px] ${location.pathname === '/privacy-policy' ? 'bg-emerald-500 text-white font-extrabold' : 'hover:text-emerald-600'}`}
         >
@@ -875,6 +881,13 @@ function Footer() {
             className={`hover:text-emerald-600 transition cursor-pointer ${location.pathname === '/faq' ? 'text-emerald-600 font-extrabold' : ''}`}
           >
             Help & FAQ
+          </Link>
+          <span>•</span>
+          <Link
+            to="/blog"
+            className={`hover:text-emerald-600 transition cursor-pointer ${location.pathname.startsWith("/blog") ? "text-emerald-600 font-extrabold" : ""}`}
+          >
+            Astrology Blog
           </Link>
           <span>•</span>
           <Link
