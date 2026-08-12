@@ -92,10 +92,13 @@ function HomePage({
   return (
     <>
       {/* Elite Friends Inspired Centered Hero Section */}
-      <section className="bg-gradient-to-b from-emerald-50/20 via-white to-white pt-12 sm:pt-16 pb-16 md:pb-20 px-4 border-b border-slate-100">
-        <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+      <section className="ai-hero pt-12 sm:pt-16 pb-16 md:pb-20 px-4 border-b border-slate-100">
+        <div className="ai-grid" aria-hidden="true"/>
+        <div className="ai-orb ai-orb-one" aria-hidden="true"/>
+        <div className="ai-orb ai-orb-two" aria-hidden="true"/>
+        <div className="hero-content max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
 
-          <div className="inline-flex items-center space-x-2 bg-emerald-100/60 border border-emerald-200/50 px-3 md:px-3.5 py-1.5 rounded-full text-emerald-800 font-bold text-xs uppercase tracking-wide">
+          <div className="ai-eyebrow inline-flex items-center space-x-2 px-3 md:px-3.5 py-1.5 rounded-full text-emerald-800 font-bold text-xs uppercase tracking-wide">
             <Sparkles className="w-3 md:w-3.5 h-3 md:h-3.5 text-emerald-600 fill-emerald-500/20" />
             <span className="text-[10px] md:text-xs">India's Most Trusted Digital Companions</span>
           </div>
@@ -103,7 +106,7 @@ function HomePage({
           {/* Elite Friends inspired heading layout with beautiful multi-lingual green animations */}
           <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.15] font-sans px-2">
             Love, Career aur bahut kuch pucho{" "}
-            <span className="text-[#00d26a] underline decoration-[#00d26a]/30 decoration-wavy block mt-2 md:mt-3 transition-all duration-300 transform scale-100 hover:scale-105">
+            <span className="ai-gradient-text block mt-2 md:mt-3 transition-all duration-300 transform scale-100 hover:scale-105">
               {animatedPhrases[phraseIdx].text}
             </span>
           </h1>
@@ -148,7 +151,7 @@ function HomePage({
           </div>
 
           {/* Beautiful Simulated Chat Interaction Display */}
-          <div className="max-w-md mx-auto w-full flex flex-col h-[400px] md:h-[480px] bg-[#efeae2] border border-slate-200 rounded-[20px] md:rounded-[24px] overflow-hidden shadow-xl relative mt-6 md:mt-12">
+          <div className="ai-chat-shell max-w-md mx-auto w-full flex flex-col h-[400px] md:h-[480px] bg-[#efeae2] border border-slate-200 rounded-[20px] md:rounded-[24px] overflow-hidden shadow-xl relative mt-6 md:mt-12">
 
             {/* Simulation Header */}
             <div className="bg-[#f0f2f5] px-3 md:px-4 py-2.5 md:py-3 border-b border-slate-200 flex items-center justify-between shadow-sm shrink-0">
@@ -260,7 +263,7 @@ function HomePage({
       </section>
 
       {/* Flat List Section: Meet Your Future Partners */}
-      <section className="bg-white py-10 md:py-12 lg:py-16 px-4">
+      <section className="ai-section bg-white py-10 md:py-12 lg:py-16 px-4">
         <div className="max-w-4xl mx-auto space-y-8 md:space-y-10">
 
           <div className="text-center space-y-2">
@@ -331,7 +334,7 @@ function HomePage({
       </section>
 
       {/* Flat Pristine Benefits & FAQ section */}
-      <section className="bg-slate-50/50 py-10 md:py-12 lg:py-16 px-4 border-t border-slate-100">
+      <section className="ai-section ai-section-alt bg-slate-50/50 py-10 md:py-12 lg:py-16 px-4 border-t border-slate-100">
         <div className="max-w-3xl mx-auto space-y-10 md:space-y-12">
 
           <div className="text-center space-y-2">
@@ -728,7 +731,7 @@ function Header() {
   const location = useLocation();
 
   return (
-    <header className="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+    <header className="ai-header bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
       <div className="max-w-6xl mx-auto px-3 md:px-4 py-2.5 md:py-3 flex items-center justify-between">
         <Link
           to="/"
