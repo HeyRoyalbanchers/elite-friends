@@ -516,42 +516,6 @@ function PrivacyPage() {
   );
 }
 
-// Features Page Component
-function FeaturesPage() {
-  const features = [
-    { icon: <MessageCircle />, number: "01", title: "Natural Hinglish Conversations", copy: "Talk freely in Hindi, English or everyday Hinglish. Your companion understands the emotion behind your words and responds in a warm, familiar voice." },
-    { icon: <RefreshCw />, number: "02", title: "Conversations With Memory", copy: "Continue without repeating your story. Elite Friends remembers useful context, preferences and the topics that matter to you." },
-    { icon: <Sparkles />, number: "03", title: "Astrology, Made Personal", copy: "Explore questions around love, career and daily life through simple, thoughtful astrology conversations—without complicated terminology." },
-    { icon: <Lock />, number: "04", title: "A Private, Safe Space", copy: "Your experience is designed around privacy, clear AI disclosure and controls that let you reset your companion context whenever you choose." }
-  ];
-  return (
-    <main className="ai-page astro-features flex-1 w-full text-left">
-      <SEO title="Features - Elite Friends AI Astrologer" description="Discover personal astrology conversations, natural Hinglish, contextual memory and private AI companionship with Elite Friends." keywords="AI astrologer, Hinglish astrology chat, Elite Friends features, astrology companion" canonical="https://www.elitefriendss.com/features" />
-      <section className="astro-feature-hero">
-        <div className="astro-stars" aria-hidden="true" />
-        <div className="max-w-6xl mx-auto px-4 astro-hero-grid">
-          <div className="astro-hero-copy">
-            <p className="astro-kicker"><span>✦</span> YOUR PERSONAL AI ASTROLOGER</p>
-            <h1>Guidance that feels<br/><em>written in the stars.</em></h1>
-            <p>Meaningful conversations about love, career and everyday life—blending thoughtful astrology with a companion who speaks your language.</p>
-            <a href="https://wa.me/919540044092" target="_blank" rel="noopener noreferrer" className="astro-primary">Start your conversation <ArrowRight className="w-4 h-4" /></a>
-          </div>
-          <div className="celestial-card" aria-label="Personal astrology companion preview">
-            <div className="celestial-orbit"><span className="planet planet-one"/><span className="planet planet-two"/><div className="zodiac-core">✦<small>ELITE</small></div></div>
-            <p>YOUR COSMIC COMPANION</p><h2>Clarity for every chapter.</h2>
-            <div className="celestial-topics"><span>Love</span><i>•</i><span>Career</span><i>•</i><span>Daily Guidance</span></div>
-          </div>
-        </div>
-      </section>
-      <section className="astro-feature-body max-w-6xl mx-auto px-4">
-        <div className="astro-intro"><p className="astro-kicker"><span>✦</span> DESIGNED AROUND YOU</p><h2>Modern intelligence.<br/>A more human conversation.</h2><p>Technology stays quietly in the background, so your experience feels simple, supportive and personal.</p></div>
-        <div className="astro-feature-list">{features.map(item => <article key={item.number}><div className="astro-icon">{item.icon}</div><span>{item.number}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></article>)}</div>
-      </section>
-      <section className="astro-journey max-w-6xl mx-auto px-4"><div><p className="astro-kicker"><span>✦</span> ALWAYS WITHIN REACH</p><h2>From a question to a thoughtful conversation.</h2></div><div className="journey-steps"><span><b>01</b>Choose your companion</span><i/><span><b>02</b>Share what is on your mind</span><i/><span><b>03</b>Explore your guidance</span></div></section>
-    </main>
-  );
-}
-
 // FAQ Page Component
 function FAQPage() {
   return (
@@ -671,12 +635,6 @@ function Header() {
             Home
           </Link>
           <Link
-            to="/features"
-            className={`hover:text-emerald-600 transition cursor-pointer py-1.5 px-1.5 rounded ${location.pathname === '/features' ? 'text-emerald-600 font-extrabold border-b-2 border-emerald-500 rounded-none' : ''}`}
-          >
-            Features
-          </Link>
-          <Link
             to="/faq"
             className={`hover:text-emerald-600 transition cursor-pointer py-1.5 px-1.5 rounded ${location.pathname === '/faq' ? 'text-emerald-600 font-extrabold border-b-2 border-emerald-500 rounded-none' : ''}`}
           >
@@ -728,12 +686,6 @@ function Header() {
           className={`px-2 md:px-3 py-1 rounded-md transition whitespace-nowrap text-[10px] ${location.pathname === '/' ? 'bg-emerald-500 text-white font-extrabold' : 'hover:text-emerald-600'}`}
         >
           Home
-        </Link>
-        <Link
-          to="/features"
-          className={`px-2 md:px-3 py-1 rounded-md transition whitespace-nowrap text-[10px] ${location.pathname === '/features' ? 'bg-emerald-500 text-white font-extrabold' : 'hover:text-emerald-600'}`}
-        >
-          Features
         </Link>
         <Link
           to="/faq"
@@ -853,7 +805,6 @@ export default function App() {
               phraseIdx={phraseIdx}
             />
           } />
-          <Route path="/features" element={<FeaturesPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
           <Route path="/blog" element={<BlogPage />} />
