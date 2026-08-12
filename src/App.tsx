@@ -518,32 +518,36 @@ function PrivacyPage() {
 
 // Features Page Component
 function FeaturesPage() {
-  const capabilities = [
-    { icon: <MessageCircle />, label: "CONVERSATION ENGINE", title: "Hinglish that feels naturally Indian", copy: "Understands Hindi, English, slang, tone shifts and conversational emojis—then responds in the same natural rhythm.", metric: "3 languages · live tone matching" },
-    { icon: <RefreshCw />, label: "CONTEXT MEMORY", title: "Every conversation builds context", copy: "Your companion follows goals, preferences and previous topics so the next message continues where you left off.", metric: "Persistent personal context" },
-    { icon: <Heart />, label: "PERSONALITY LAYER", title: "A companion tuned to your vibe", copy: "Choose warm, playful, calm or protective personalities. Each profile has a distinct voice, energy and response style.", metric: "4 unique AI personalities" },
-    { icon: <Lock />, label: "PRIVACY LAYER", title: "Private by design", copy: "Secure messaging routes, clear AI disclosure and user-controlled reset tools keep you in control of your experience.", metric: "Reset context anytime" }
+  const features = [
+    { icon: <MessageCircle />, number: "01", title: "Natural Hinglish Conversations", copy: "Talk freely in Hindi, English or everyday Hinglish. Your companion understands the emotion behind your words and responds in a warm, familiar voice." },
+    { icon: <RefreshCw />, number: "02", title: "Conversations With Memory", copy: "Continue without repeating your story. Elite Friends remembers useful context, preferences and the topics that matter to you." },
+    { icon: <Sparkles />, number: "03", title: "Astrology, Made Personal", copy: "Explore questions around love, career and daily life through simple, thoughtful astrology conversations—without complicated terminology." },
+    { icon: <Lock />, number: "04", title: "A Private, Safe Space", copy: "Your experience is designed around privacy, clear AI disclosure and controls that let you reset your companion context whenever you choose." }
   ];
   return (
-    <main className="ai-page feature-lab flex-1 w-full py-12 md:py-20 text-left">
-      <SEO title="AI Features - Elite Friends" description="Explore the conversational intelligence, contextual memory, personalities and private messaging technology behind Elite Friends." keywords="Elite Friends AI features, Hinglish AI, contextual memory, WhatsApp AI companion" canonical="https://www.elitefriendss.com/features" />
-      <section className="feature-hero max-w-6xl mx-auto px-4">
-        <div className="feature-copy">
-          <div className="ai-eyebrow inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"><Sparkles className="w-4 h-4" /> ELITE AI SYSTEM</div>
-          <h1>Not just a chatbot.<br/><span className="ai-gradient-text">An AI that gets your vibe.</span></h1>
-          <p>Built for real Indian conversations—personal context, expressive Hinglish and distinct companion personalities, available directly inside the apps you already use.</p>
-          <div className="feature-pills"><span>● AI online</span><span>24/7 available</span><span>Private conversations</span></div>
-        </div>
-        <div className="neural-console" aria-label="Elite Friends AI activity preview">
-          <div className="console-top"><span>ELITE / NEURAL CORE</span><span className="live-dot">● LIVE</span></div>
-          <div className="neural-stage"><div className="neural-ring ring-one"/><div className="neural-ring ring-two"/><div className="neural-core"><Sparkles /></div><span className="node n1">TONE</span><span className="node n2">MEMORY</span><span className="node n3">HINGLISH</span><span className="node n4">EMPATHY</span></div>
-          <div className="signal-row"><div><b>98%</b><span>context match</span></div><div><b>LIVE</b><span>tone sensing</span></div><div><b>24/7</b><span>response ready</span></div></div>
+    <main className="ai-page astro-features flex-1 w-full text-left">
+      <SEO title="Features - Elite Friends AI Astrologer" description="Discover personal astrology conversations, natural Hinglish, contextual memory and private AI companionship with Elite Friends." keywords="AI astrologer, Hinglish astrology chat, Elite Friends features, astrology companion" canonical="https://www.elitefriendss.com/features" />
+      <section className="astro-feature-hero">
+        <div className="astro-stars" aria-hidden="true" />
+        <div className="max-w-6xl mx-auto px-4 astro-hero-grid">
+          <div className="astro-hero-copy">
+            <p className="astro-kicker"><span>✦</span> YOUR PERSONAL AI ASTROLOGER</p>
+            <h1>Guidance that feels<br/><em>written in the stars.</em></h1>
+            <p>Meaningful conversations about love, career and everyday life—blending thoughtful astrology with a companion who speaks your language.</p>
+            <a href="https://wa.me/919540044092" target="_blank" rel="noopener noreferrer" className="astro-primary">Start your conversation <ArrowRight className="w-4 h-4" /></a>
+          </div>
+          <div className="celestial-card" aria-label="Personal astrology companion preview">
+            <div className="celestial-orbit"><span className="planet planet-one"/><span className="planet planet-two"/><div className="zodiac-core">✦<small>ELITE</small></div></div>
+            <p>YOUR COSMIC COMPANION</p><h2>Clarity for every chapter.</h2>
+            <div className="celestial-topics"><span>Love</span><i>•</i><span>Career</span><i>•</i><span>Daily Guidance</span></div>
+          </div>
         </div>
       </section>
-      <section className="capability-grid max-w-6xl mx-auto px-4">
-        {capabilities.map((item, index) => <article className={`capability-card card-${index + 1}`} key={item.label}><div className="cap-icon">{item.icon}</div><p className="cap-label">{item.label}</p><h2>{item.title}</h2><p className="cap-copy">{item.copy}</p><div className="cap-metric"><span className="pulse-dot" />{item.metric}</div></article>)}
+      <section className="astro-feature-body max-w-6xl mx-auto px-4">
+        <div className="astro-intro"><p className="astro-kicker"><span>✦</span> DESIGNED AROUND YOU</p><h2>Modern intelligence.<br/>A more human conversation.</h2><p>Technology stays quietly in the background, so your experience feels simple, supportive and personal.</p></div>
+        <div className="astro-feature-list">{features.map(item => <article key={item.number}><div className="astro-icon">{item.icon}</div><span>{item.number}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></article>)}</div>
       </section>
-      <section className="ai-flow max-w-6xl mx-auto mx-4 md:mx-auto"><div><p className="cap-label">ONE CONTINUOUS AI FLOW</p><h2>Your message. Understood, remembered and answered.</h2></div><div className="flow-line"><span>01 <b>Listen</b></span><i/><span>02 <b>Understand</b></span><i/><span>03 <b>Remember</b></span><i/><span>04 <b>Respond</b></span></div><a href="https://wa.me/919540044092" target="_blank" rel="noopener noreferrer">Experience the AI <ArrowRight className="w-4 h-4" /></a></section>
+      <section className="astro-journey max-w-6xl mx-auto px-4"><div><p className="astro-kicker"><span>✦</span> ALWAYS WITHIN REACH</p><h2>From a question to a thoughtful conversation.</h2></div><div className="journey-steps"><span><b>01</b>Choose your companion</span><i/><span><b>02</b>Share what is on your mind</span><i/><span><b>03</b>Explore your guidance</span></div></section>
     </main>
   );
 }
