@@ -518,126 +518,32 @@ function PrivacyPage() {
 
 // Features Page Component
 function FeaturesPage() {
+  const capabilities = [
+    { icon: <MessageCircle />, label: "CONVERSATION ENGINE", title: "Hinglish that feels naturally Indian", copy: "Understands Hindi, English, slang, tone shifts and conversational emojis—then responds in the same natural rhythm.", metric: "3 languages · live tone matching" },
+    { icon: <RefreshCw />, label: "CONTEXT MEMORY", title: "Every conversation builds context", copy: "Your companion follows goals, preferences and previous topics so the next message continues where you left off.", metric: "Persistent personal context" },
+    { icon: <Heart />, label: "PERSONALITY LAYER", title: "A companion tuned to your vibe", copy: "Choose warm, playful, calm or protective personalities. Each profile has a distinct voice, energy and response style.", metric: "4 unique AI personalities" },
+    { icon: <Lock />, label: "PRIVACY LAYER", title: "Private by design", copy: "Secure messaging routes, clear AI disclosure and user-controlled reset tools keep you in control of your experience.", metric: "Reset context anytime" }
+  ];
   return (
-    <main className="ai-page flex-1 max-w-4xl w-full mx-auto px-4 py-10 md:py-12 space-y-8 md:space-y-12 text-left">
-      <SEO
-        title="Features - Elite Friends"
-        description="Discover why thousands trust Elite Friends for daily emotional comfort, stress relief, and professional advice in Hinglish."
-        keywords="Elite Friends features, Hinglish chat, AI companion features, WhatsApp companion, Telegram companion"
-        canonical="https://www.elitefriendss.com/features"
-      />
-
-      <div className="text-center space-y-3 md:space-y-4 max-w-2xl mx-auto">
-        <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-800 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-600 fill-emerald-500/10" />
-          <span>Full Dynamic Features</span>
+    <main className="ai-page feature-lab flex-1 w-full py-12 md:py-20 text-left">
+      <SEO title="AI Features - Elite Friends" description="Explore the conversational intelligence, contextual memory, personalities and private messaging technology behind Elite Friends." keywords="Elite Friends AI features, Hinglish AI, contextual memory, WhatsApp AI companion" canonical="https://www.elitefriendss.com/features" />
+      <section className="feature-hero max-w-6xl mx-auto px-4">
+        <div className="feature-copy">
+          <div className="ai-eyebrow inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"><Sparkles className="w-4 h-4" /> ELITE AI SYSTEM</div>
+          <h1>Not just a chatbot.<br/><span className="ai-gradient-text">An AI that gets your vibe.</span></h1>
+          <p>Built for real Indian conversations—personal context, expressive Hinglish and distinct companion personalities, available directly inside the apps you already use.</p>
+          <div className="feature-pills"><span>● AI online</span><span>24/7 available</span><span>Private conversations</span></div>
         </div>
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight font-sans">
-          Smartest Natively-Hinglish Digital Friends
-        </h1>
-        <p className="text-sm md:text-base text-slate-500 leading-relaxed">
-          Discover why thousands of members trust Elite Friends for daily emotional comfort, stress relief, active learning, and professional advice directly in WhatsApp and Telegram.
-        </p>
-      </div>
-
-      {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-2 md:pt-4">
-
-        {/* Feature 1 */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 md:p-6 space-y-3 md:space-y-3.5 shadow-sm transition hover:shadow-md">
-          <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center">
-            <Sparkles className="w-5.5 h-5.5 text-emerald-600" />
-          </div>
-          <h3 className="text-base md:text-lg font-extrabold text-slate-900">Sweet Hinglish Mastery</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            No robotic translation barriers. Our companions understand typical Indian chats seamlessly, replying in custom Hinglish and conversational emojis.
-          </p>
+        <div className="neural-console" aria-label="Elite Friends AI activity preview">
+          <div className="console-top"><span>ELITE / NEURAL CORE</span><span className="live-dot">● LIVE</span></div>
+          <div className="neural-stage"><div className="neural-ring ring-one"/><div className="neural-ring ring-two"/><div className="neural-core"><Sparkles /></div><span className="node n1">TONE</span><span className="node n2">MEMORY</span><span className="node n3">HINGLISH</span><span className="node n4">EMPATHY</span></div>
+          <div className="signal-row"><div><b>98%</b><span>context match</span></div><div><b>LIVE</b><span>tone sensing</span></div><div><b>24/7</b><span>response ready</span></div></div>
         </div>
-
-        {/* Feature 2 */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 md:p-6 space-y-3 md:space-y-3.5 shadow-sm transition hover:shadow-md">
-          <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
-            <Smartphone className="w-5.5 h-5.5 text-blue-600" />
-          </div>
-          <h3 className="text-base md:text-lg font-extrabold text-slate-900">Direct Messenger Links</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Skip separate websites and browser tabs. Chat inside WhatsApp or Telegram with zero load times. It works natively exactly like your real friends.
-          </p>
-        </div>
-
-        {/* Feature 3 */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 md:p-6 space-y-3 md:space-y-3.5 shadow-sm transition hover:shadow-md">
-          <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center">
-            <Lock className="w-5.5 h-5.5 text-amber-600" />
-          </div>
-          <h3 className="text-base md:text-lg font-extrabold text-slate-900">100% Secure & Private</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Zero signups required. All tokenized chats are private, secure, and encrypted. Your details are never compiled or shared with outside trackers.
-          </p>
-        </div>
-
-        {/* Feature 4 */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 md:p-6 space-y-3 md:space-y-3.5 shadow-sm transition hover:shadow-md">
-          <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center">
-            <Heart className="w-5.5 h-5.5 text-red-600 fill-red-50" />
-          </div>
-          <h3 className="text-base md:text-lg font-extrabold text-slate-900">Distinct Personalities</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Pick a dynamic friend who matches your vibe. Trisha is sweet and caring, Poorvi is full of memes and excitement, Raghav is your solid elder bro, and Saksham is your high-energy pal.
-          </p>
-        </div>
-
-        {/* Feature 5 */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 md:p-6 space-y-3 md:space-y-3.5 shadow-sm transition hover:shadow-md">
-          <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
-            <RefreshCw className="w-5.5 h-5.5 text-purple-600" />
-          </div>
-          <h3 className="text-base md:text-lg font-extrabold text-slate-900">Continuous Memory</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Say goodbye to repeating yourself! Our companions maintain active memory buffers to remember your work details, stress points, and goals.
-          </p>
-        </div>
-
-        {/* Feature 6 */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 md:p-6 space-y-3 md:space-y-3.5 shadow-sm transition hover:shadow-md">
-          <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center">
-            <HelpCircle className="w-5.5 h-5.5 text-teal-600" />
-          </div>
-          <h3 className="text-base md:text-lg font-extrabold text-slate-900">24/7 Listening Space</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Stressed at 3 AM or need immediate support during work hours? Get non-judgmental comfort, advice, or career discussions instantly.
-          </p>
-        </div>
-
-      </div>
-
-      {/* Call to action section */}
-      <div className="bg-emerald-50 border border-emerald-100 rounded-3xl p-5 md:p-8 text-center space-y-4 md:space-y-6 max-w-2xl mx-auto">
-        <h3 className="text-xl md:text-2xl font-extrabold text-slate-900">Ready to chat with your favourite partner?</h3>
-        <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-          Launch directly inside WhatsApp or Telegram right now. Simply tap below and say hello!
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3">
-          <a
-            href="https://wa.me/919540044092"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-sm md:text-sm px-5 md:px-6 py-2.5 md:py-3 rounded-xl transition shadow-md"
-          >
-            <MessageCircle className="w-4 h-4 md:w-5 md:h-5 fill-white" />
-            <span className="text-sm md:text-sm">WhatsApp Launcher</span>
-          </a>
-          <a
-            href="https://wa.me/919540044092"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-[#229ED9] hover:bg-[#1a82b3] text-white font-extrabold text-sm md:text-sm px-5 md:px-6 py-2.5 md:py-3 rounded-xl transition shadow-md"
-          >
-            <Send className="w-4 h-4 md:w-4.5 md:h-4.5 fill-white" />
-            <span className="text-sm md:text-sm">Telegram Launcher</span>
-          </a>
-        </div>
-      </div>
+      </section>
+      <section className="capability-grid max-w-6xl mx-auto px-4">
+        {capabilities.map((item, index) => <article className={`capability-card card-${index + 1}`} key={item.label}><div className="cap-icon">{item.icon}</div><p className="cap-label">{item.label}</p><h2>{item.title}</h2><p className="cap-copy">{item.copy}</p><div className="cap-metric"><span className="pulse-dot" />{item.metric}</div></article>)}
+      </section>
+      <section className="ai-flow max-w-6xl mx-auto mx-4 md:mx-auto"><div><p className="cap-label">ONE CONTINUOUS AI FLOW</p><h2>Your message. Understood, remembered and answered.</h2></div><div className="flow-line"><span>01 <b>Listen</b></span><i/><span>02 <b>Understand</b></span><i/><span>03 <b>Remember</b></span><i/><span>04 <b>Respond</b></span></div><a href="https://wa.me/919540044092" target="_blank" rel="noopener noreferrer">Experience the AI <ArrowRight className="w-4 h-4" /></a></section>
     </main>
   );
 }
