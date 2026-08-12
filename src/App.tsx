@@ -429,7 +429,7 @@ function HomePage({
 // Privacy Page Component
 function PrivacyPage() {
   return (
-    <main className="flex-1 max-w-3xl w-full mx-auto px-4 py-10 md:py-12 space-y-6 md:space-y-8 text-left">
+    <main className="ai-page flex-1 max-w-3xl w-full mx-auto px-4 py-10 md:py-12 space-y-6 md:space-y-8 text-left">
       <SEO
         title="Privacy Policy & Terms of Service - Elite Friends"
         description="Read Elite Friends' privacy policy, terms of service, and data security practices. Your privacy is our priority."
@@ -519,7 +519,7 @@ function PrivacyPage() {
 // Features Page Component
 function FeaturesPage() {
   return (
-    <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-10 md:py-12 space-y-8 md:space-y-12 text-left">
+    <main className="ai-page flex-1 max-w-4xl w-full mx-auto px-4 py-10 md:py-12 space-y-8 md:space-y-12 text-left">
       <SEO
         title="Features - Elite Friends"
         description="Discover why thousands trust Elite Friends for daily emotional comfort, stress relief, and professional advice in Hinglish."
@@ -645,7 +645,7 @@ function FeaturesPage() {
 // FAQ Page Component
 function FAQPage() {
   return (
-    <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-10 md:py-12 space-y-8 md:space-y-12 text-left">
+    <main className="ai-page flex-1 max-w-4xl w-full mx-auto px-4 py-10 md:py-12 space-y-8 md:space-y-12 text-left">
       <SEO
         title="FAQ & Help - Elite Friends"
         description="Find answers to frequently asked questions about Elite Friends, how to use our AI companions, and get support."
@@ -850,11 +850,17 @@ function Header() {
 
 // Footer Component
 function Footer() {
-  const location = useLocation();
-
   return (
-    <footer className="bg-white border-t border-slate-100 pt-6 md:pt-8 pb-20 md:pb-8 px-3 md:px-4 text-center text-slate-400 text-[10px] md:text-xs mt-auto">
+    <footer className="ai-footer bg-white border-t border-slate-100 pt-6 md:pt-8 pb-20 md:pb-8 px-3 md:px-4 text-center text-slate-400 text-[10px] md:text-xs mt-auto">
       <div className="max-w-6xl mx-auto space-y-4 md:space-y-5">
+        <div className="footer-sitemap text-left">
+          <div className="footer-brand"><div className="footer-mark"><Sparkles className="w-5 h-5" /></div><h2>Elite Friends</h2><p>Your private AI astrologer and trusted digital companion—available whenever you need clarity or conversation.</p></div>
+          <div><h3>Help Center</h3><Link to="/faq">Help & FAQ</Link><Link to="/privacy-policy">Privacy & Terms</Link><a href="mailto:support@elitefriendss.com">Contact Support</a></div>
+          <div><h3>Astrology Blog</h3><Link to="/blog">All Blog Articles</Link><Link to="/blog/elite-friends-ai-astrologer-and-friend">AI Astrologer & Friend</Link><Link to="/blog/online-ai-astrologer-love-career-guidance">Love & Career Guide</Link></div>
+          <div><h3>Learning Guides</h3><Link to="/blog/daily-horoscope-rashifal-guide">Daily Horoscope Guide</Link><Link to="/blog/kundli-birth-chart-basics">Kundli & Birth Chart</Link><a href="https://wa.me/919540044092" target="_blank" rel="noopener noreferrer">WhatsApp AI Chat</a></div>
+          <div><h3>Elite Friends</h3><p>Private Hinglish conversations, astrology insights, and thoughtful AI companionship.</p><span className="footer-status">● Systems online</span></div>
+        </div>
+        <div className="footer-divider" />
         <p className="font-extrabold tracking-widest text-slate-700 uppercase text-[10px] md:text-xs">
           ELITE FRIENDS © 2026 . A UNIT OF AI ASTROLOGY
         </p>
@@ -863,52 +869,6 @@ function Footer() {
         </p>
         <p className="text-[9px] md:text-xs"> © 2026 ELITEFRIENDSS. A UNIT OF AI ASTROLOGY.</p>
 
-        {/* Footer Navigation links */}
-        <div className="flex flex-wrap justify-center items-center gap-x-3 md:gap-x-6 gap-y-2 text-slate-400 font-bold text-[9px] md:text-xs">
-          <Link
-            to="/"
-            className={`hover:text-emerald-600 transition cursor-pointer ${location.pathname === '/' ? 'text-emerald-600 font-extrabold' : ''}`}
-          >
-            Home Page
-          </Link>
-          <span>•</span>
-          <Link
-            to="/features"
-            className={`hover:text-emerald-600 transition cursor-pointer ${location.pathname === '/features' ? 'text-emerald-600 font-extrabold' : ''}`}
-          >
-            Features
-          </Link>
-          <span>•</span>
-          <Link
-            to="/faq"
-            className={`hover:text-emerald-600 transition cursor-pointer ${location.pathname === '/faq' ? 'text-emerald-600 font-extrabold' : ''}`}
-          >
-            Help & FAQ
-          </Link>
-          <span>•</span>
-          <Link
-            to="/blog"
-            className={`hover:text-emerald-600 transition cursor-pointer ${location.pathname.startsWith("/blog") ? "text-emerald-600 font-extrabold" : ""}`}
-          >
-            Astrology Blog
-          </Link>
-          <span>•</span>
-          <Link
-            to="/privacy-policy"
-            className={`hover:text-emerald-600 transition cursor-pointer flex items-center gap-1 ${location.pathname === '/privacy-policy' ? 'text-emerald-600 font-extrabold' : ''}`}
-          >
-            <FileText className="w-3 h-3 md:w-3.5 md:h-3.5" />
-            <span>Privacy Policy & Terms</span>
-          </Link>
-          <span>•</span>
-          <a
-            href="mailto:support@elitefriendss.com"
-            className="hover:text-emerald-600 transition flex items-center gap-1"
-          >
-            <Mail className="w-3 h-3 md:w-3.5 md:h-3.5" />
-            <span>support@elitefriendss.com</span>
-          </a>
-        </div>
       </div>
     </footer>
   );
@@ -969,7 +929,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#fafbfc] text-slate-800 font-sans flex flex-col antialiased">
+      <div className="app-shell min-h-screen bg-[#fafbfc] text-slate-800 font-sans flex flex-col antialiased">
         <SEO />
         <Header />
 
