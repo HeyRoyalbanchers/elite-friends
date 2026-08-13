@@ -4,6 +4,7 @@ import { Companion, Message } from "./types";
 import { BlogPage, BlogArticlePage } from "./Blog";
 import { INITIAL_COMPANIONS } from "./data";
 import { HeroThreeScene } from "./components/HeroThreeScene";
+import eliteFriendsLogo from "../Elitefriendss.jpeg";
 import {
   Heart,
   MessageCircle,
@@ -614,7 +615,7 @@ function Header() {
           className="flex items-center space-x-2 md:space-x-3 text-left focus:outline-none cursor-pointer shrink-0"
         >
           <img
-            src="https://maas-log-prod.cn-wlcb.ufileos.com/anthropic/f40b580f-2b15-4b07-be9c-f46b79927b27/b421122004eb6035c78f92833be6f6d5.jpg"
+            src={eliteFriendsLogo}
             alt="Elite Friends Logo"
             className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-xl object-cover shadow-sm"
           />
