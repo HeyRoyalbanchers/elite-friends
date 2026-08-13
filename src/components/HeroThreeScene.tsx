@@ -49,12 +49,37 @@ export function HeroThreeScene() {
     const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, 160, 0.018, 6, false), tubeMaterial);
     group.add(tube);
 
+    const crystalMaterial = new THREE.MeshNormalMaterial({ transparent: true, opacity: 0.72, flatShading: true });
+    const crystalGeometry = new THREE.IcosahedronGeometry(0.72, 1);
+    const leftCrystal = new THREE.Mesh(crystalGeometry, crystalMaterial);
+    const rightCrystal = new THREE.Mesh(crystalGeometry, crystalMaterial);
+    leftCrystal.position.set(-3.65, 1.35, -0.2);
+    rightCrystal.position.set(3.7, 0.55, -0.4);
+    rightCrystal.scale.setScalar(0.72);
+    group.add(leftCrystal, rightCrystal);
+
+    const ringMaterial = new THREE.MeshBasicMaterial({ color: "#7258ee", transparent: true, opacity: 0.52 });
+    const ringGeometry = new THREE.TorusGeometry(1.12, 0.025, 8, 96);
+    const leftRing = new THREE.Mesh(ringGeometry, ringMaterial);
+    leftRing.position.copy(leftCrystal.position);
+    leftRing.rotation.x = 1.1;
+    const rightRing = leftRing.clone();
+    rightRing.position.copy(rightCrystal.position);
+    rightRing.scale.setScalar(0.72);
+    group.add(leftRing, rightRing);
+
+    const beadMaterial = new THREE.MeshBasicMaterial({ color: "#25d8a2" });
+    const beadGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+    const bead = new THREE.Mesh(beadGeometry, beadMaterial);
+    group.add(bead);
+
     const cursor = new THREE.Vector2();
     const onPointerMove = (event: PointerEvent) => cursor.set((event.clientX / window.innerWidth - 0.5) * 2, (event.clientY / window.innerHeight - 0.5) * 2);
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     const resize = () => {
       const { width, height } = host.getBoundingClientRect();
       renderer.setSize(width, height, false);
+      group.scale.setScalar(width < 640 ? 0.72 : 1);
       camera.aspect = width / Math.max(height, 1);
       camera.updateProjectionMatrix();
     };
@@ -66,11 +91,17 @@ export function HeroThreeScene() {
     let frame = 0;
     const animate = () => {
       const elapsed = clock.getElapsedTime();
-      group.rotation.y += (cursor.x * 0.12 - group.rotation.y) * 0.025;
-      group.rotation.x += (-cursor.y * 0.06 - group.rotation.x) * 0.025;
-      particles.rotation.z = elapsed * 0.018;
-      particles.position.y = Math.sin(elapsed * 0.45) * 0.08;
-      tubeMaterial.opacity = 0.22 + Math.sin(elapsed * 0.8) * 0.08;
+      group.rotation.y += (cursor.x * 0.22 - group.rotation.y) * 0.035;
+      group.rotation.x += (-cursor.y * 0.1 - group.rotation.x) * 0.035;
+      particles.rotation.z = elapsed * 0.035;
+      particles.position.y = Math.sin(elapsed * 0.6) * 0.12;
+      leftCrystal.rotation.set(elapsed * 0.32, elapsed * 0.48, elapsed * 0.18);
+      rightCrystal.rotation.set(-elapsed * 0.38, elapsed * 0.42, -elapsed * 0.22);
+      leftRing.rotation.z = elapsed * 0.36;
+      rightRing.rotation.z = -elapsed * 0.42;
+      bead.position.copy(curve.getPoint((elapsed * 0.08) % 1));
+      bead.scale.setScalar(0.8 + Math.sin(elapsed * 3) * 0.22);
+      tubeMaterial.opacity = 0.55 + Math.sin(elapsed * 1.2) * 0.18;
       renderer.render(scene, camera);
       frame = requestAnimationFrame(animate);
     };
@@ -84,6 +115,12 @@ export function HeroThreeScene() {
       particleMaterial.dispose();
       tube.geometry.dispose();
       tubeMaterial.dispose();
+      crystalGeometry.dispose();
+      crystalMaterial.dispose();
+      ringGeometry.dispose();
+      ringMaterial.dispose();
+      beadGeometry.dispose();
+      beadMaterial.dispose();
       renderer.dispose();
       renderer.domElement.remove();
     };
