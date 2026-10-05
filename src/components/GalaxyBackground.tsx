@@ -8,7 +8,7 @@ import * as THREE from "three";
  * Two layers on the black theme:
  *  1. A small, distant spiral galaxy near the top of the screen (tsl_galaxy).
  *  2. A site-wide wave grid of dots (webgl_points_waves) flowing below.
- * Pure time-based animation only — no scroll or pointer coupling.
+ * Time-based animation; scrolling down zooms the camera toward the galaxy.
  */
 export function GalaxyBackground() {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -229,6 +229,15 @@ export function GalaxyBackground() {
     waveGrid.position.set(0, -3, -12);
     scene.add(waveGrid);
 
+    // ---- Scroll zoom state ---------------------------------------------------
+    const state = { scroll: 0, scrollTarget: 0 };
+    const maxScroll = () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const onScroll = () => {
+      state.scrollTarget = Math.min(window.scrollY / maxScroll(), 1);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
     const resize = () => {
       const { width, height } = host.getBoundingClientRect();
       renderer.setSize(width, height, false);
@@ -242,15 +251,26 @@ export function GalaxyBackground() {
     let time = 0;
     let frame = 0;
     let last = performance.now();
+    const baseCamY = 1.7;
+    const baseCamZ = 5.6;
     const animate = (now: number) => {
       const delta = Math.min((now - last) / 1000, 0.05);
       last = now;
+
+      state.scroll += (state.scrollTarget - state.scroll) * 0.055;
 
       if (!reducedMotion) {
         time += delta * 0.6;
         galaxyMaterial.uniforms.uTime.value = time;
         gridMaterial.uniforms.uTime.value = time;
         stars.rotation.y = time * 0.01;
+
+        // Scrolling down zooms the camera toward the distant galaxy.
+        const zoom = state.scroll;
+        camera.position.y = baseCamY + zoom * 1.6;
+        camera.position.z = baseCamZ - zoom * 3.6;
+        camera.lookAt(0, 1.9 + zoom * 1.7, -10);
+        galaxyGroup.scale.setScalar(0.42 + zoom * 0.34);
       }
 
       renderer.render(scene, camera);
@@ -261,6 +281,7 @@ export function GalaxyBackground() {
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
       galaxyGeometry.dispose();
       galaxyMaterial.dispose();
       starGeometry.dispose();
