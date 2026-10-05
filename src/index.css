@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Bebas+Neue&family=Cinzel:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -40,7 +40,7 @@
 }
 
 :root{color:#11142d;background:#fafaff}body{margin:0;background:#fafaff}.ai-header{background:rgba(255,255,255,.78)!important;backdrop-filter:blur(18px);border-color:rgba(86,65,160,.1)!important}.ai-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#fff 0%,rgba(247,246,255,.78) 48%,transparent 72%),linear-gradient(155deg,#fbfbff,#f2efff 52%,#edf6ff)}.hero-content{position:relative;z-index:2}.ai-grid{position:absolute;inset:0;z-index:-1;opacity:.42;background-image:linear-gradient(rgba(72,52,144,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(72,52,144,.055) 1px,transparent 1px);background-size:52px 52px}.ai-orb{position:absolute;z-index:-1;width:34rem;aspect-ratio:1;border-radius:50%;opacity:.7;animation:aiFloat 10s ease-in-out infinite alternate}.ai-orb-one{left:-17rem;top:8rem;background:radial-gradient(circle at 62% 40%,#ddd6ff,#9488ff 30%,transparent 70%)}.ai-orb-two{right:-18rem;top:20rem;background:radial-gradient(circle at 35% 42%,#c9edff,#8d9dff 32%,transparent 70%)}.ai-eyebrow{color:#5641c8;background:rgba(255,255,255,.72);border-color:rgba(100,78,212,.18)!important;box-shadow:0 10px 35px rgba(79,57,176,.09)}.ai-gradient-text{background:linear-gradient(90deg,#6147e8,#8c52e5 48%,#318be8);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.ai-chat-shell{border-color:rgba(108,85,202,.22)!important;box-shadow:0 35px 90px rgba(71,50,153,.18),0 0 0 8px rgba(255,255,255,.45)!important}.ai-section-alt{background:linear-gradient(180deg,#faf9ff,#f4f7ff)!important}@keyframes aiFloat{to{transform:translate3d(24px,18px,0) scale(1.05)}}@media(max-width:640px){.ai-orb{width:22rem;opacity:.5}.ai-orb-one{left:-15rem}.ai-orb-two{right:-16rem;top:30rem}.ai-grid{background-size:38px 38px}}@media(prefers-reduced-motion:reduce){.ai-orb{animation:none}}
-/* ===== Three.js site-wide background system (tsl galaxy + points_dynamic + scroll camera) ===== */
+/* ===== Three.js site-wide background system (tsl galaxy + points_waves grid) ===== */
 .galaxy-background{position:fixed;inset:0;z-index:0;pointer-events:none;background:#05050a}
 .galaxy-background canvas{display:block;width:100%;height:100%}
 .app-shell{background:transparent!important}
@@ -174,57 +174,3 @@ body{background:#05050a!important;color:#e2e8f0!important}
 .cap-icon{background:rgba(124,93,250,.16)!important;color:#c4b5fd!important}
 .cap-copy{color:#a5a3b8!important}
 .cap-metric{color:#8b8798!important}
-
-/* ============================================================
-   TYPOGRAPHY — h1: Bebas Neue | h2,h3: Cinzel
-   ============================================================ */
-h1{font-family:"Bebas Neue",Impact,"Arial Narrow",sans-serif!important;font-weight:400!important;letter-spacing:.03em}
-h2,h3{font-family:"Cinzel",Georgia,"Times New Roman",serif!important}
-h1 .ai-gradient-text{letter-spacing:.02em}
-
-/* ============================================================
-   ALL TEXT WHITE — black theme par har text white
-   (chat mockup ke andar dark text hi rahega visibility ke liye)
-   ============================================================ */
-.text-slate-950{color:#ffffff!important}
-.text-slate-900{color:#ffffff!important}
-.text-slate-800{color:#ffffff!important}
-.text-slate-700{color:#f8fafc!important}
-.text-slate-600{color:#f1f5f9!important}
-.text-slate-500{color:#eef2f7!important}
-.text-slate-400{color:#e2e8f0!important}
-.text-emerald-600{color:#ffffff!important}
-.text-emerald-700{color:#ffffff!important}
-.text-emerald-800{color:#ffffff!important}
-.text-purple-600{color:#ffffff!important}
-.text-purple-700{color:#ffffff!important}
-.text-amber-900{color:#ffffff!important}
-.text-sky-500{color:#ffffff!important}
-.ai-gradient-text{background:linear-gradient(90deg,#ffffff,#e0e7ff 55%,#ffffff)!important}
-.ai-eyebrow{color:#ffffff!important}
-.ai-page h1,.ai-page h2,.ai-page h3{color:#ffffff!important}
-
-/* footer text white */
-.ai-footer,.ai-footer p,.ai-footer a,.ai-footer span,.ai-footer div,.ai-footer h3{color:#ffffff!important}
-.ai-footer .footer-status{color:#6ee7b7!important}
-
-/* astro gold section text white */
-.astro-feature-list h3,.astro-feature-list p,.astro-intro>p:last-child,.journey-steps span{color:#ffffff!important}
-.astro-hero-copy h1 em{color:#ffffff!important}
-.astro-feature-list article>span{color:#e4c273!important}
-
-/* feature lab text white */
-.cap-copy,.feature-copy>p,.cap-metric{color:#f1f5f9!important}
-
-/* hero heading white (animated span bhi) */
-.hero-content h1,.hero-content h1 span{color:#ffffff!important}
-.hero-content .ai-gradient-text{background:linear-gradient(90deg,#ffffff,#dbeafe 55%,#ffffff)!important}
-
-/* WhatsApp chat mockup: light bubbles par dark text hi sahi hai */
-.ai-chat-shell .text-slate-800{color:#1e293b!important}
-.ai-chat-shell .text-slate-700{color:#334155!important}
-.ai-chat-shell .text-slate-600{color:#475569!important}
-.ai-chat-shell .text-slate-500{color:#64748b!important}
-.ai-chat-shell .text-emerald-600{color:#059669!important}
-.ai-chat-shell .text-emerald-700{color:#047857!important}
-.ai-chat-shell .text-emerald-800{color:#065f46!important}

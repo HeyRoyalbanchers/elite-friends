@@ -5,10 +5,10 @@ import * as THREE from "three";
  * Full-page spiral galaxy background, inspired by the three.js example:
  * https://github.com/mrdoob/three.js/blob/master/examples/webgpu_tsl_galaxy.html
  *
- * Particles are arranged into spinning spiral arms and rotated per-particle in
- * the vertex shader (inner stars orbit faster). Colors blend from a bright
- * core to a deep outer blue with additive glow on the black theme.
- * Pure time-based rotation only — no scroll or pointer coupling.
+ * Two layers on the black theme:
+ *  1. A small, distant spiral galaxy near the top of the screen (tsl_galaxy).
+ *  2. A site-wide wave grid of dots (webgl_points_waves) flowing below.
+ * Pure time-based animation only — no scroll or pointer coupling.
  */
 export function GalaxyBackground() {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -32,6 +32,7 @@ export function GalaxyBackground() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 120);
     camera.position.set(0, 1.7, 5.6);
+    camera.lookAt(0, 1.9, -10);
 
     const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "high-performance" });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.35 : 1.75));
@@ -39,7 +40,10 @@ export function GalaxyBackground() {
     renderer.setClearColor(0x05050a, 1);
     host.appendChild(renderer.domElement);
 
+    // Galaxy sits small, high and far away so it reads as a distant galaxy.
     const galaxyGroup = new THREE.Group();
+    galaxyGroup.position.set(0, 5.1, -20);
+    galaxyGroup.scale.setScalar(0.42);
     scene.add(galaxyGroup);
 
     // ---- Spiral galaxy ------------------------------------------------------
@@ -158,6 +162,73 @@ export function GalaxyBackground() {
     const stars = new THREE.Points(starGeometry, starMaterial);
     scene.add(stars);
 
+    // ---- Site-wide wave grid (webgl_points_waves) ----------------------------
+    const GRID_X = isMobile ? 84 : 132;
+    const GRID_Y = isMobile ? 46 : 72;
+    const GRID_SEP = 0.42;
+    const gridCount = GRID_X * GRID_Y;
+    const gridPositions = new Float32Array(gridCount * 3);
+    const gridColors = new Float32Array(gridCount * 3);
+    const gridPalette = [new THREE.Color("#7258ee"), new THREE.Color("#3d98f1"), new THREE.Color("#63d8b0")];
+    let gi = 0;
+    for (let ix = 0; ix < GRID_X; ix += 1) {
+      for (let iy = 0; iy < GRID_Y; iy += 1) {
+        gridPositions[gi * 3] = ix * GRID_SEP - ((GRID_X * GRID_SEP) / 2);
+        gridPositions[gi * 3 + 1] = 0;
+        gridPositions[gi * 3 + 2] = iy * GRID_SEP - ((GRID_Y * GRID_SEP) / 2);
+        const c = gridPalette[(ix + iy) % gridPalette.length];
+        gridColors[gi * 3] = c.r;
+        gridColors[gi * 3 + 1] = c.g;
+        gridColors[gi * 3 + 2] = c.b;
+        gi += 1;
+      }
+    }
+    const gridGeometry = new THREE.BufferGeometry();
+    gridGeometry.setAttribute("position", new THREE.BufferAttribute(gridPositions, 3));
+    gridGeometry.setAttribute("aColor", new THREE.BufferAttribute(gridColors, 3));
+    const gridMaterial = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      uniforms: {
+        uTime: { value: 0 },
+        uSize: { value: isMobile ? 1.0 : 1.25 },
+        uOpacity: { value: 0.5 },
+      },
+      vertexShader: /* glsl */ `
+        uniform float uTime;
+        uniform float uSize;
+        attribute vec3 aColor;
+        varying vec3 vColor;
+        varying float vShimmer;
+
+        void main() {
+          vec3 pos = position;
+          pos.y += sin(pos.x * 0.28 + uTime) * 0.5 + sin(pos.z * 0.34 + uTime * 0.8) * 0.35;
+          vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+          gl_PointSize = clamp(uSize * (120.0 / -mvPosition.z), 1.0, 5.0);
+          gl_Position = projectionMatrix * mvPosition;
+          vColor = aColor;
+          vShimmer = 0.55 + 0.45 * sin(uTime * 1.5 + pos.x * 2.1 + pos.z * 1.7);
+        }
+      `,
+      fragmentShader: /* glsl */ `
+        uniform float uOpacity;
+        varying vec3 vColor;
+        varying float vShimmer;
+
+        void main() {
+          float d = length(gl_PointCoord - vec2(0.5));
+          if (d > 0.5) discard;
+          float glow = smoothstep(0.5, 0.08, d);
+          gl_FragColor = vec4(vColor, glow * uOpacity * vShimmer);
+        }
+      `,
+    });
+    const waveGrid = new THREE.Points(gridGeometry, gridMaterial);
+    waveGrid.position.set(0, -3, -12);
+    scene.add(waveGrid);
+
     const resize = () => {
       const { width, height } = host.getBoundingClientRect();
       renderer.setSize(width, height, false);
@@ -178,6 +249,7 @@ export function GalaxyBackground() {
       if (!reducedMotion) {
         time += delta * 0.6;
         galaxyMaterial.uniforms.uTime.value = time;
+        gridMaterial.uniforms.uTime.value = time;
         stars.rotation.y = time * 0.01;
       }
 
@@ -193,6 +265,8 @@ export function GalaxyBackground() {
       galaxyMaterial.dispose();
       starGeometry.dispose();
       starMaterial.dispose();
+      gridGeometry.dispose();
+      gridMaterial.dispose();
       renderer.dispose();
       renderer.domElement.remove();
     };
