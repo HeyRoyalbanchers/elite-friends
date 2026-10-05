@@ -146,7 +146,7 @@ body{background:#05050a!important;color:#e2e8f0!important}
 .ai-grid{opacity:.5;background-image:linear-gradient(rgba(148,120,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(148,120,255,.07) 1px,transparent 1px)!important}
 .ai-orb{opacity:.28}
 .ai-eyebrow{color:#c9bbff!important;background:rgba(124,93,250,.14)!important;border-color:rgba(148,120,255,.3)!important;box-shadow:0 10px 35px rgba(0,0,0,.4)!important}
-.ai-gradient-text{background:linear-gradient(90deg,#a78bfa,#c084fc 48%,#67e8f9)!important}
+.ai-gradient-text{background:linear-gradient(90deg,#a78bfa,#c084fc 48%,#67e8f9)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;color:transparent}
 .ai-section.bg-white{background:rgba(9,9,16,.55)!important}
 .ai-section-alt{background:linear-gradient(180deg,rgba(10,10,18,.62),rgba(8,8,15,.6))!important}
 .app-shell{background:transparent!important}
