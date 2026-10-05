@@ -265,12 +265,12 @@ export function GalaxyBackground() {
         gridMaterial.uniforms.uTime.value = time;
         stars.rotation.y = time * 0.01;
 
-        // Scrolling down zooms the camera toward the distant galaxy.
+        // Scrolling down zooms the camera hard toward the distant galaxy.
         const zoom = state.scroll;
-        camera.position.y = baseCamY + zoom * 1.6;
-        camera.position.z = baseCamZ - zoom * 3.6;
-        camera.lookAt(0, 1.9 + zoom * 1.7, -10);
-        galaxyGroup.scale.setScalar(0.42 + zoom * 0.34);
+        camera.position.y = baseCamY + zoom * 2.2;
+        camera.position.z = baseCamZ - zoom * 5.2;
+        camera.lookAt(0, 1.9 + zoom * 2.1, -10);
+        galaxyGroup.scale.setScalar(0.42 + zoom * 1.15);
       }
 
       renderer.render(scene, camera);
