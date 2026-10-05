@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Bebas+Neue&family=Cinzel:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -179,3 +179,57 @@ body{background:#05050a!important;color:#e2e8f0!important}
 .cap-icon{background:rgba(124,93,250,.16)!important;color:#c4b5fd!important}
 .cap-copy{color:#a5a3b8!important}
 .cap-metric{color:#8b8798!important}
+
+/* ============================================================
+   TYPOGRAPHY — h1: Bebas Neue | h2,h3: Cinzel
+   ============================================================ */
+h1{font-family:"Bebas Neue",Impact,"Arial Narrow",sans-serif!important;font-weight:400!important;letter-spacing:.03em}
+h2,h3{font-family:"Cinzel",Georgia,"Times New Roman",serif!important}
+h1 .ai-gradient-text{letter-spacing:.02em}
+
+/* ============================================================
+   ALL TEXT WHITE — black theme par har text white
+   (chat mockup ke andar dark text hi rahega visibility ke liye)
+   ============================================================ */
+.text-slate-950{color:#ffffff!important}
+.text-slate-900{color:#ffffff!important}
+.text-slate-800{color:#ffffff!important}
+.text-slate-700{color:#f8fafc!important}
+.text-slate-600{color:#f1f5f9!important}
+.text-slate-500{color:#eef2f7!important}
+.text-slate-400{color:#e2e8f0!important}
+.text-emerald-600{color:#ffffff!important}
+.text-emerald-700{color:#ffffff!important}
+.text-emerald-800{color:#ffffff!important}
+.text-purple-600{color:#ffffff!important}
+.text-purple-700{color:#ffffff!important}
+.text-amber-900{color:#ffffff!important}
+.text-sky-500{color:#ffffff!important}
+.ai-gradient-text{background:linear-gradient(90deg,#ffffff,#e0e7ff 55%,#ffffff)!important}
+.ai-eyebrow{color:#ffffff!important}
+.ai-page h1,.ai-page h2,.ai-page h3{color:#ffffff!important}
+
+/* footer text white */
+.ai-footer,.ai-footer p,.ai-footer a,.ai-footer span,.ai-footer div,.ai-footer h3{color:#ffffff!important}
+.ai-footer .footer-status{color:#6ee7b7!important}
+
+/* astro gold section text white */
+.astro-feature-list h3,.astro-feature-list p,.astro-intro>p:last-child,.journey-steps span{color:#ffffff!important}
+.astro-hero-copy h1 em{color:#ffffff!important}
+.astro-feature-list article>span{color:#e4c273!important}
+
+/* feature lab text white */
+.cap-copy,.feature-copy>p,.cap-metric{color:#f1f5f9!important}
+
+/* hero heading white (animated span bhi) */
+.hero-content h1,.hero-content h1 span{color:#ffffff!important}
+.hero-content .ai-gradient-text{background:linear-gradient(90deg,#ffffff,#dbeafe 55%,#ffffff)!important}
+
+/* WhatsApp chat mockup: light bubbles par dark text hi sahi hai */
+.ai-chat-shell .text-slate-800{color:#1e293b!important}
+.ai-chat-shell .text-slate-700{color:#334155!important}
+.ai-chat-shell .text-slate-600{color:#475569!important}
+.ai-chat-shell .text-slate-500{color:#64748b!important}
+.ai-chat-shell .text-emerald-600{color:#059669!important}
+.ai-chat-shell .text-emerald-700{color:#047857!important}
+.ai-chat-shell .text-emerald-800{color:#065f46!important}
