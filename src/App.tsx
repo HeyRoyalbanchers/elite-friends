@@ -5,7 +5,7 @@ import { BlogPage, BlogArticlePage } from "./Blog";
 import { INITIAL_COMPANIONS } from "./data";
 import { HeroThreeScene } from "./components/HeroThreeScene";
 import { HeroDynamicPoints } from "./components/HeroDynamicPoints";
-import { WavesBackground } from "./components/WavesBackground";
+import { GalaxyBackground } from "./components/GalaxyBackground";
 import {
   Heart,
   MessageCircle,
@@ -797,7 +797,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="app-shell min-h-screen bg-[#fafbfc] text-slate-800 font-sans flex flex-col antialiased">
-        <WavesBackground />
+        <GalaxyBackground />
         <SEO />
         <Header />
 
