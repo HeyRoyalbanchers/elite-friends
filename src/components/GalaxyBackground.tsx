@@ -8,6 +8,7 @@ import * as THREE from "three";
  * Particles are arranged into spinning spiral arms and rotated per-particle in
  * the vertex shader (inner stars orbit faster). Colors blend from a bright
  * core to a deep outer blue with additive glow on the black theme.
+ * Pure time-based rotation only — no scroll or pointer coupling.
  */
 export function GalaxyBackground() {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -83,12 +84,10 @@ export function GalaxyBackground() {
       uniforms: {
         uTime: { value: 0 },
         uSize: { value: isMobile ? 34 : 30 },
-        uDrift: { value: 0 },
       },
       vertexShader: /* glsl */ `
         uniform float uTime;
         uniform float uSize;
-        uniform float uDrift;
         attribute float aScale;
         attribute float aRadius;
         attribute float aAngle;
@@ -105,8 +104,6 @@ export function GalaxyBackground() {
             aRandom.y,
             sin(angle) * aRadius + aRandom.z
           );
-          pos.y += uDrift;
-
           vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
           gl_PointSize = uSize * aScale * (1.0 / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
@@ -161,28 +158,6 @@ export function GalaxyBackground() {
     const stars = new THREE.Points(starGeometry, starMaterial);
     scene.add(stars);
 
-    // ---- Interaction state --------------------------------------------------
-    const state = {
-      scroll: 0,
-      scrollTarget: 0,
-      pointerX: 0,
-      pointerY: 0,
-      pointerXTarget: 0,
-      pointerYTarget: 0,
-      time: 0,
-    };
-    const maxScroll = () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-    const onScroll = () => {
-      state.scrollTarget = Math.min(window.scrollY / maxScroll(), 1);
-    };
-    const onPointerMove = (event: PointerEvent) => {
-      state.pointerXTarget = (event.clientX / window.innerWidth - 0.5) * 2;
-      state.pointerYTarget = (event.clientY / window.innerHeight - 0.5) * 2;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
-    onScroll();
-
     const resize = () => {
       const { width, height } = host.getBoundingClientRect();
       renderer.setSize(width, height, false);
@@ -193,29 +168,17 @@ export function GalaxyBackground() {
     observer.observe(host);
     resize();
 
-    const baseCamY = 1.7;
-    const baseCamZ = 5.6;
+    let time = 0;
     let frame = 0;
     let last = performance.now();
     const animate = (now: number) => {
       const delta = Math.min((now - last) / 1000, 0.05);
       last = now;
 
-      state.scroll += (state.scrollTarget - state.scroll) * 0.045;
-      state.pointerX += (state.pointerXTarget - state.pointerX) * 0.04;
-      state.pointerY += (state.pointerYTarget - state.pointerY) * 0.04;
-
       if (!reducedMotion) {
-        state.time += delta * (0.55 + state.scroll * 0.75);
-        galaxyMaterial.uniforms.uTime.value = state.time;
-        // Scrolling lifts the camera and drifts the galaxy downward.
-        galaxyMaterial.uniforms.uDrift.value = -state.scroll * 1.4;
-        camera.position.x = state.pointerX * 0.85;
-        camera.position.y = baseCamY + state.scroll * 2.9 + state.pointerY * -0.35;
-        camera.position.z = baseCamZ - state.scroll * 1.6;
-        camera.lookAt(state.pointerX * 0.2, state.scroll * 0.7, 0);
-        galaxy.rotation.z = state.scroll * 0.25;
-        stars.rotation.y = state.time * 0.012;
+        time += delta * 0.6;
+        galaxyMaterial.uniforms.uTime.value = time;
+        stars.rotation.y = time * 0.01;
       }
 
       renderer.render(scene, camera);
@@ -226,8 +189,6 @@ export function GalaxyBackground() {
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("pointermove", onPointerMove);
       galaxyGeometry.dispose();
       galaxyMaterial.dispose();
       starGeometry.dispose();

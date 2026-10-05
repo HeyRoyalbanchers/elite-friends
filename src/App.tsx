@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-do
 import { Companion, Message } from "./types";
 import { BlogPage, BlogArticlePage } from "./Blog";
 import { INITIAL_COMPANIONS } from "./data";
-import { HeroThreeScene } from "./components/HeroThreeScene";
-import { HeroDynamicPoints } from "./components/HeroDynamicPoints";
 import { GalaxyBackground } from "./components/GalaxyBackground";
 import {
   Heart,
@@ -96,8 +94,6 @@ function HomePage({
     <>
       {/* Elite Friends Inspired Centered Hero Section */}
       <section className="ai-hero pt-12 sm:pt-16 pb-16 md:pb-20 px-4 border-b border-slate-100">
-        <HeroThreeScene />
-        <HeroDynamicPoints />
         <div className="ai-grid" aria-hidden="true"/>
         <div className="ai-orb ai-orb-one" aria-hidden="true"/>
         <div className="ai-orb ai-orb-two" aria-hidden="true"/>
